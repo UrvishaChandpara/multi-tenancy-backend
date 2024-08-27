@@ -40,22 +40,18 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
-        // 'api' => [
-        //    'driver' => 'passport',
-        //    'provider' => 'users', // Use the users' provider for API authentication
-        // ],
+        'api' => [
+           'driver' => 'passport',
+           'provider' => 'users', // Use the users' provider for API authentication
+        ],
         'user' => [
            'driver' => 'passport',
-           'provider' => 'users', // Use the users provider for API authentication
+           'provider' => 'tenants', // Use the users provider for API authentication
         ],
         'admin' => [
            'driver' => 'passport',
            'provider' => 'admins', // Use the admins provider for API authentication
         ],
-        'delivery_driver' => [
-           'driver' => 'passport',
-           'provider' => 'delivery_drivers', // Use the delivery_drivers provider for API authentication
-        ]
     ],
 
     /*
@@ -80,13 +76,13 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
+        'tenants' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Tenant::class,
+        ],
        'admins' => [
            'driver' => 'eloquent',
-           'model' => App\Models\admin::class,
-       ],
-       'delivery_drivers' => [
-           'driver' => 'eloquent',
-           'model' => App\Models\delivery_driver::class,
+           'model' => App\Models\super_admin::class,
        ],
         // 'users' => [
         //     'driver' => 'database',
@@ -115,19 +111,13 @@ return [
 
     'passwords' => [
         'users' => [
-            'provider' => 'users',
+            'provider' => 'tenants',
             'table' => 'password_reset_tokens',
             'expire' => 60,
             'throttle' => 60,
         ],
         'admins' => [
            'provider' => 'admins',
-           'table' => 'password_reset_tokens',
-           'expire' => 60,
-           'throttle' => 60,
-       ],
-        'delivery_drivers' => [
-           'provider' => 'delivery_drivers',
            'table' => 'password_reset_tokens',
            'expire' => 60,
            'throttle' => 60,

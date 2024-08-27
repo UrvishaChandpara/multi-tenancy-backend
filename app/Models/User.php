@@ -12,7 +12,7 @@ class User extends Authenticatable
 {
     use HasFactory, HasApiTokens, Notifiable;
 
-    protected $primaryKey = '_id';
+    protected $primaryKey = 'id';
     protected $hidden = ['created_at', 'updated_at'];
     protected $guard = 'user';
     /**
@@ -23,12 +23,7 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
-        'phoneno',
-        'dob',
-        'image',
-        'aniversary_date',
-        'gender',
-        'disable'
+        'password'
     ];
 
     public function getAuthIdentifierName()

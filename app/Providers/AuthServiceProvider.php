@@ -26,7 +26,6 @@ class AuthServiceProvider extends ServiceProvider
         Passport::tokensCan([
             'user' => 'Access user-specific endpoints',
             'admin' => 'Access admin-specific endpoints',
-            'delivery_driver' => 'Access delivery-specific endpoints',
         ]);
     }
 }
